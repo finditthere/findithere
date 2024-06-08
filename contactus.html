@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find It Here! - Contact</title>
+    <link rel="icon" href="favicon.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff; /* Default background color */
+            transition: color 0.5s, background-color 0.5s;
+        }
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #333; /* Dark background color */
+        }
+        body.dark-mode *:not(.big-button) {
+            color: #fff !important; /* Change text color to white when dark mode is on */
+        }
+        header {
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid #333; /* Add outline */
+            border-radius: 10px; /* Rounded corners */
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav {
+            display: flex;
+            align-items: center; /* Align items vertically */
+        }
+        nav a {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 18px;
+            text-decoration: none;
+            margin-left: 20px;
+            border-radius: 5px;
+            border: 2px solid #007bff;
+        }
+        .dark-mode-toggle {
+            display: flex; /* Display as flex container */
+            align-items: center; /* Align items vertically */
+        }
+        .dark-mode-toggle input[type="checkbox"] {
+            display: none; /* Hide the actual checkbox */
+        }
+        .dark-mode-toggle label {
+            background-color: #ddd;
+            border-radius: 20px;
+            cursor: pointer;
+            display: inline-block;
+            height: 20px;
+            position: relative;
+            width: 40px;
+            margin-right: 10px; /* Add margin between button and text */
+        }
+        .dark-mode-toggle label:after {
+            background-color: #fff;
+            border-radius: 50%;
+            content: '';
+            height: 18px;
+            position: absolute;
+            top: 1px;
+            width: 18px;
+            left: 1px;
+            transition: transform 1s;
+        }
+        .dark-mode-toggle input[type="checkbox"]:checked + label {
+            background-color: #333;
+        }
+        .dark-mode-toggle input[type="checkbox"]:checked + label:after {
+            transform: translateX(20px);
+        }
+        .main-content {
+            padding: 20px;
+            text-align: center;
+            display: flex; /* Use flexbox */
+            justify-content: center; /* Horizontally center the buttons */
+            align-items: center; /* Vertically center the buttons */
+            flex-direction: column; /* Stack items vertically */
+        }
+        .big-button, a.big-button, .suggestions-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 18px;
+            text-decoration: none;
+            margin: 10px;
+            border-radius: 5px;
+            border: 2px solid #007bff;
+        }
+        .big-button-green, a.big-button-green {
+            display: inline-block;
+            background-color: #129b00;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 18px;
+            text-decoration: none;
+            margin: 10px;
+            border-radius: 5px;
+            border: 2px solid #129b00;
+        }
+        /* Style for the "More Info" button */
+        .more-info-button {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #007bff;
+            font-size: 16px;
+            text-decoration: none;
+            border-bottom: 1px solid #007bff; /* Add underlining */
+            padding-bottom: 2px; /* Adjust padding for better spacing */
+            cursor: pointer;
+        }
+        /* Style for the copyright notice */
+        .copyright-notice {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            color: #666;
+            font-size: 12px;
+        }
+        .dark-mode-toggle input[type="checkbox"]:checked + label + span {
+            color: #fff; /* Change text color to white when dark mode is on */
+        }
+        /* Custom style for left-aligned text */
+        .left-aligned {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <header style="background-color: #333; border: 2px solid #333; border-radius: 0; padding: 20px;">
+        <div class="logo" onclick="goToHome()"><img src="bisnes.png" alt="Find It Here"></div>
+        <nav style="display: flex; align-items: center;">
+            <a href="signin.html" class="big-button-green">Sign In</a>
+            <a href="membership.html" class="big-button" style="margin-right: 20px;">Membership</a>
+            <div class="dark-mode-toggle" style="margin-left: auto;">
+                <input type="checkbox" id="dark-mode-toggle">
+                <label for="dark-mode-toggle"></label>
+                <span class="default-mode">Dark Mode</span>
+            </div>
+        </nav>
+        <p style="font-size: 14px; text-align: center; color: #fff;">5$ A Month To Have Everything Free! Click Membership to get started.</p>
+    </header>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <p style="font-size: 42px;">Contact Us</p>
+        <p style="font-size: 28px;" class="left-aligned">Gmail:</p>
+        <p style="font-size: 20px;" class="left-aligned">amongus3487@gmail.com</p>
+        <p style="font-size: 20px;" class="left-aligned">astro.zawawi@gmail.com</p>
+        <p style="font-size: 28px;" class="left-aligned">Phone:</p>
+        <p style="font-size: 20px;" class="left-aligned">+962798486750 (Jordan)</p>
+    </div>
+    <!-- Copyright Notice -->
+    <div class="copyright-notice">&copy;2024 Find It Here. All rights reserved.</div>
+
+    <!-- Script for dark mode toggle -->
+    <script>
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            var body = document.body;
+            var darkModeToggle = document.getElementById('dark-mode-toggle');
+            var isDarkMode = body.classList.toggle('dark-mode');
+            darkModeToggle.checked = isDarkMode; // Update the toggle state
+            setCookie('darkMode', isDarkMode ? 'true' : 'false', 365);
+        }
+    
+        // Apply dark mode preference from cookie
+        var darkModePreference = getCookie('darkMode');
+        if (darkModePreference === 'true') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('dark-mode-toggle').checked = true; // Update the toggle state
+        }
+    
+        // Function to set a cookie
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+    
+        // Function to get a cookie
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1, c.length);
+                }
+                if (c.indexOf(nameEQ) == 0) {
+                    return c.substring(nameEQ.length, c.length);
+                }
+            }
+            return null;
+        }
+    
+        // Function to navigate back to home page
+        function goToHome() {
+            window.location.href = "homepage.html";
+        }
+    
+        // Dark mode toggle event listener
+        document.getElementById('dark-mode-toggle').addEventListener('change', toggleDarkMode);
+    </script>
+</body>
+</html>
